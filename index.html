@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Keep Notes App</title>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body color-scheme="light">
+    <aside class="aside">
+        <ul class="categories-container"></ul>
+    </aside>
+
+    <div class="container">
+        <nav>
+            <input id="search" type="search" placeholder="Type to search notes..." />
+            <button class="toggle-btn">Toggle</button>
+        </nav>
+
+        <div class="form-container">
+            <h1>Keep Notes</h1>
+            <form>
+                <input name="title" type="text" id="title" placeholder="title">
+                <textarea name="note" id="note" rows="5" placeholder="Take a note..."></textarea>
+                <select name="categories" id="categories"></select>
+                <button type="submit">Save</button>
+            </form>
+        </div>
+
+        <div class="note-container">
+            <!-- note items-->
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
