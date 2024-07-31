@@ -10,16 +10,20 @@
     --bg-dark: #1f2329;
     --text-light: #e8eaed;
     --text-dark: #333;
+    --btn-light: #fbbd23;
+    --btn-dark: #c89004;
 }
 
 [color-scheme="light"]{
     --bg-color: var(--bg-light);
     --text-color: var(--text-dark);
+    --btn-color: var(--btn-light);
 }
 
 [color-scheme="dark"]{
     --bg-color: var(--bg-dark);
     --text-color: var(--text-light);
+    --btn-color: var(--btn-dark);
 }
 
 body{
@@ -27,6 +31,7 @@ body{
     color: var(--text-color);
     font-family: system-ui, sans-serif;
     display: flex;
+    min-height: 100vh;
 }
 
 .aside{
@@ -48,11 +53,22 @@ body{
     text-align: center;
 }
 
-.container{
-    max-width: 960px;
-    margin: 0 auto;
+.aside .category-item{
+    text-align: center;
+    font-weight: 400;
+    padding: 1em 0;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
 }
 
+.container{
+    width: 90%;
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 nav{
     width: 100%;
@@ -67,6 +83,28 @@ nav{
     border-radius: 24px;
 }
 
+form{
+    margin: 1em 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1em;
+}
+
+form button[type = submit]{
+    background-color: var(--btn-color);
+    border: 3px solid transparent;
+    border-radius: 6px;
+    font-size: 1rem;
+    color: white;
+    padding: 0.3em 0.5em;
+    cursor: pointer;
+}
+
+form button[type = submit]:hover{
+    box-shadow: 0 1px 2px 0 #ccc;
+}
+
 input, textarea, select{
     padding: 0.5em;
     border: 2px solid #ccc;
@@ -76,7 +114,6 @@ input, textarea, select{
     background-color: var(--bg-color);
     border-radius: 6px;
     display: block;
-    width: 100%;
 }
 
 .note-container{
@@ -89,16 +126,32 @@ input, textarea, select{
     margin: 2em auto 4em;
 }
 
+.note-container .note-btns{
+    display: flex;
+    justify-content: flex-end;
+    gap:0.5em;
+    margin-top: 1em;
+}
+
+.note-btns .note-btn{
+    font-size: 0.8rem;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+.note-btns .note-btn:hover{
+    box-shadow: 0 1px 2px 0 #ccc;
+}
+
 .note{
     background-color: var(--bg-color);
     color: var(--text-color);
     padding: 1.5em;
     border: 3px solid #ccc;
     border-radius: 8px;
-}
-
-form * {
-    width: 100%;
+    width: 24rem;
 }
 
 nav .toggle-btn{
@@ -112,4 +165,46 @@ nav .toggle-btn{
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+}
+
+.modal {
+    width: 90%;
+    max-height: 80vh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 2em;
+    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translateX(-50%);
+}
+
+@media(width > 640px){
+    .modal{
+        max-width: 30rem;
+    }
+}
+
+.modal::backdrop,
+.modal::-webkit-backdrop {
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal .modal-title{
+    font-size: 1.5rem;
+    margin-bottom: 1em;
+}
+
+.modal .modal-btn{
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    background-color: transparent;
+    color: inherit;
+
 }
